@@ -1,11 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://bxp4sgfnw5asf"]
+[gd_scene load_steps=6 format=3 uid="uid://bxp4sgfnw5asf"]
 
+[ext_resource type="Texture2D" uid="uid://dqc4lqdo2auio" path="res://textures/brick_pavement_02_diff_4k.png" id="1_05ndk"]
 [ext_resource type="PackedScene" uid="uid://cfnucwtp45nci" path="res://Player.tscn" id="1_8rcur"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ysgg2"]
 size = Vector3(60, 2, 60)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d2i00"]
+albedo_texture = ExtResource("1_05ndk")
+
 [sub_resource type="BoxMesh" id="BoxMesh_tyd23"]
+material = SubResource("StandardMaterial3D_d2i00")
 size = Vector3(60, 2, 60)
 
 [node name="Main" type="Node"]
@@ -28,6 +33,3 @@ shadow_enabled = true
 
 [node name="Marker3D" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19)
-
-[node name="Camera3D" type="Camera3D" parent="Marker3D"]
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 9.47315, 0)
