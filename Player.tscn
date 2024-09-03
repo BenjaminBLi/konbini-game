@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cfnucwtp45nci"]
+[gd_scene load_steps=5 format=3 uid="uid://cfnucwtp45nci"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_8b0d7"]
+[ext_resource type="Script" path="res://Camera3D.gd" id="2_lknex"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ii3o7"]
 
@@ -16,3 +17,14 @@ mesh = SubResource("CapsuleMesh_ii3o7")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_dbg28")
+
+[node name="TwistPivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="PitchPivot" type="Node3D" parent="TwistPivot"]
+transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="TwistPivot/PitchPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+fov = 61.3477
+script = ExtResource("2_lknex")
