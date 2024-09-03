@@ -17,7 +17,7 @@ var pitch_val = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	if OS.has_feature("editor"):
+	if OS.has_feature("debug"):
 		_cam.translate(Vector3(0,0,3))
 	else:
 		_cam.translate(Vector3(0,0,0))
