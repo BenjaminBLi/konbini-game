@@ -12,10 +12,15 @@ var pitch_val = 0
 
 @onready var _twist_pivot := $TwistPivot
 @onready var _pitch_pivot := $TwistPivot/PitchPivot
+@onready var _cam := $TwistPivot/PitchPivot/Camera3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	if OS.has_feature("editor"):
+		_cam.translate(Vector3(0,0,3))
+	else:
+		_cam.translate(Vector3(0,0,0))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
